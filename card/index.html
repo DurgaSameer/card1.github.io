@@ -4,102 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Music Player</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        .container {
-            margin-top: 50px;
-        }
-
-        button {
-            font-size: 20px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        
-        .card {
-            perspective: 1000px;
-            width: 350px;
-            height: 450px;
-            position: relative;
-            margin: 0 auto;
-        }
-
-        .card-inner {
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transition: transform 0.5s;
-        }
-
-        .card-front,
-        .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            font-size: 18px;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-front {
-            background-color: #f5f5f5;
-        }
-
-        .card-back {
-            background-color: #f2cc8f;
-            transform: rotateY(180deg);
-            display: flex;
-            flex-direction: column;
-            font-family: 'Dancing Script', cursive;
-        }
-
-      
-
-        
-        .card-front img
-        {
-            position: absolute;
-            top:0;
-            left: 0;
-            right:0;
-            bottom:0;
-            width: 95%;
-            height: 95%;
-            object-fit: cover;
-            transform: preserve-3d;
-            backface-visibility: hidden;
-        }
-        .card-back img{
-            height: 150px;
-            font-weight:15px;
-            position: relative;
-            top:0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-        }
-        #msg
-        {
-            font-size:25px;
-            font-weight: bold;
-            padding: 2px 3px;
-        }
-    </style>
+    <link rel="stylesheet" href="faculty\style.css">
 </head>
 <body>
     <div class="card">
@@ -108,11 +13,11 @@
                 <img class="photo" src="faculty\bg1front.jpg" alt="Teacher's Photo">
             </div>
             <div class="card-back">
-                <h2 id="greet">Happy Teacher's Day !</h2>
+                <h3 id="greet">Happy Teacher's Day !</h3>
                 <div id="pic">
                     <img src="faculty\Bhavesh Jain Sir.PNG" alt="">
                 </div>
-                <h2 id="title_name"> <span id="Iname">Mr</span> <span id="name">Bhavesh sir</span> <span>!</span></h2>
+                <h3 id="title_name"> <span id="Iname">Mr</span> <span id="name">Bhavesh sir</span> <span>!</span></h3>
                 <!-- <p>Thank you for your dedication and guidance.</p>
             <p>You are truly appreciated!</p> -->
             <p id="msg">Thank you for being a our teacher, inspiring us with knowledge and being a valuable resource in our classroom.</p>
@@ -134,38 +39,7 @@
         <source src="faculty\Shukriya-(Teachers-Day)(PaglaSongs)-[AudioTrimmer.com].mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    <script>
-        const playButton = document.getElementById('playButton');
-        const music = document.getElementById('music');
-        const cardInner = document.querySelector('.card-inner');
-        let isFlipped = false;
-
-        // Function to handle touch events
-        function handleTouch() {
-            if (music.paused || music.ended) {
-                music.play();
-                playButton.innerHTML = 'Pause Music';
-                isFlipped = !isFlipped;
-            if (isFlipped) {
-                cardInner.style.transform = 'rotateY(180deg)';
-                musicPlayer.play(); // Start playing the music
-
-            } 
-           
-            } else {
-                music.pause();
-                playButton.innerHTML = 'Play Music';
-                cardInner.style.transform = 'rotateY(0deg)';
-            }
-        }
-
-        // Add touchstart event listener to the button
-        playButton.addEventListener('touchstart', handleTouch);
-
-        // Listen for the 'ended' event to reset the button text
-        music.addEventListener('ended', function () {
-            playButton.innerHTML = 'Play Music';
-        });
-    </script>
-</body>
+    <script src="faculty\script.js"></script>
+    
+    </body>
 </html>
